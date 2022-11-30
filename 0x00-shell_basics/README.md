@@ -1,1 +1,1 @@
-Scripts that Display current directory in a long format
+Scripts to Display current directory contents.
