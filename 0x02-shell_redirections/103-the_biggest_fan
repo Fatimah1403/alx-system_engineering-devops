@@ -1,0 +1,2 @@
+#!/bin/bash
+cut -f 11 log | uniq -c | sort -n
