@@ -1,0 +1,2 @@
+#!/bin/bash
+sedb -n 'p;n'
