@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+#!/usr/bin/env bash
+#A new Nginx server configured so that /redirect_me is redirecting to another page
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/www/html/index
+string_to_replace = '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/ permanent;' /etc/nginx/sites-available/default
+sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/ permanent;' /etc/nginx/sites-available/default
+
+# create custom 404 page that contains the string Ceci n'est pas une page
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+
+string_to_rep="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var/www\/html;\n\t\tinternal;\n\t}"
+sudo sed -i "s/listen 80 default_server;/$string_to_rep/" etc/ngnix/sites-available/default
+
+sudo service nginx restart
+sudo service nginx reload
