@@ -16,8 +16,8 @@ frontend  fatimah-frontend
         default_backend ehoneah-backend
 backend fatimah-backend
         balance roundrobin
-        server 195830-web-01 54.145.239.113:80 check
-        server 195830-web-02 54.166.144.186:80 check
+        server 195830-web-01 3.85.175.167:80 check
+        server 195830-web-02 34.239.107.183:80 check
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
