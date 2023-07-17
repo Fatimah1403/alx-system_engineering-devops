@@ -10,7 +10,8 @@
 
 # Adding new lines to forward all request from port 8080/TCP to 80/TCP
 # I did sudo ufw allow 8080/tcp
-#  i did sudo ufw enable
+# I did sudo ufw disable
+# I did sudo ufw enable
 *nat
 :PREROUTING ACCEPT [0:0]
 -A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
