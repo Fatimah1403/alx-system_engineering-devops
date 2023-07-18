@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# nginx must be running as nginx user
-sed -i "s/8080/" /etc/nginx/sites-enabled/default
-chmod 644  /etc/nginx/nginx.conf
-sed -i '1iuser nginx;' /etc/nginx/nginx.conf
-pkill -f apache2
+# Fixes a web server to run Nginx as the nginx user listening on port 8080.
+sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
+sed -i "s/80/8080/g" /etc/nginx/sites-available/default
+chmod 644 /etc/nginx/nginx.conf
+pkill apache2
 sudo -u nginx service nginx start
