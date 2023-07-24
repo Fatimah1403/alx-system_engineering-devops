@@ -13,9 +13,9 @@ if __name__ == '__main__':
     username = user.get("username")
     todos = req.get(url + "todos", params={"userId": user_id}).json()
 
-    with open("{}.json".format(user_id), "w") as json_file:
+    with open("{}.json".format(user_id), "w") as jsonfile:
         json.dump({user_id: [{
                 "task": el.get("title"),
                 "completed": el.get("completed"),
                 "username": "username"
-                } for el in todos]}, json_file)
+                } for el in todos]}, jsonfile)
