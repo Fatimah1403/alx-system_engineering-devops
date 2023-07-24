@@ -2,7 +2,7 @@
 """Exporting the employer to_do list in json format
 """
 import json
-import requests as req
+import requests
 import sys
 
 
