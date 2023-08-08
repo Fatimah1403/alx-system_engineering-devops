@@ -15,7 +15,7 @@ def number_of_subscribers(subreddit):
             "User-Agent": 'Google chrome version 115.0.5790.171'
             }
     response = requests.get(url, headers=headers, allow_redirects=False)
-    if response.status.code == 404:
+    if response.status_code == 404:
         return 0
     result = response.json().get("data")
     return result.get("subscribers")
