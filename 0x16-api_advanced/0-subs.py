@@ -12,7 +12,7 @@ def number_of_subscribers(subreddit):
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
 
     headers = {
-            "User-Agent": "Google chrome version 115.0.5790.171"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5790.171 Safari/537.36"
     }
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code == 404:
