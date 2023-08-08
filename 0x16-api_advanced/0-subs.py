@@ -12,8 +12,8 @@ def number_of_subscribers(subreddit):
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
 
     headers = {
-            "User-Agent": 'Google chrome version 115.0.5790.171'
-            }
+            "User-Agent": "Google chrome version 115.0.5790.171"
+    }
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code == 404:
         return 0
