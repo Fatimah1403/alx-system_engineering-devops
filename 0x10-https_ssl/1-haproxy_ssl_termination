@@ -33,6 +33,7 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
+
 frontend fatimah-frontend-http
         bind *:80
         mode http
@@ -40,11 +41,12 @@ frontend fatimah-frontend-http
         default_backend fatimah-backend
 
 frontend fatimah-frontend-https
-        bind *:443 ssl crt /etc/haproxy/certs/www.kennyfatimah.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/www.kennyfatimah.tech/all.pem
         http-request set-header X-Forwarded-Proto https
         default_backend fatimah-backend
 
 backend fatimah-backend
         balance roundrobin
-        server 195830-web-01 54.161.253.93:80 check
-        server 195830-web-02 100.26.212.36:80 check
+        server 195830-web-01 100.25.153.153:80 check
+        server 195830-web-02 54.234.77.23:80 check
+
