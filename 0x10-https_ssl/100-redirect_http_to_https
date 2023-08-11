@@ -1,4 +1,3 @@
-global
         log /dev/log    local0
         log /dev/log    local1 notice
         chroot /var/lib/haproxy
@@ -33,12 +32,13 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
+
 listen 195830-lb-01
-	bind *:80
+        bind *:80
         bind *:443 ssl crt /etc/letsencrypt/live/www.kennyfatimah.tech/all.pem
         mode http
         redirect scheme https code 301 if !{ ssl_fc }
         balance roundrobin
         option forwardfor
-        server 195830-web-01 54.161.253.93:80 check
-        server 195830-web-02 100.26.212.36:80 check
+        server 195830-web-01 100.25.153.153:80 check
+        server 195830-web-02 54.234.77.23:80 check
