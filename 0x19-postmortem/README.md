@@ -1,7 +1,7 @@
 # SERVER OUTAGE POSTMETUM
 > By Fatimah Hassan
+[Click here to view the Canva design](https://www.canva.com/design/DAFrPslHNH8/GwAJbO5b6A3q0HJCGkuWzQ/edit)
 
-![](https://www.canva.com/design/DAFrPslHNH8/GwAJbO5b6A3q0HJCGkuWzQ/edit)
 
 ## <strong>Postmortem: Web Stack Outage incident</strong>
 
