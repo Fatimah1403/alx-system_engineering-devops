@@ -3,12 +3,13 @@
 
 # we increased the hard file limit for the user "holberton"
 
-exec { 'increase_hard_limit_for_holberton':
-  command => 'sed -i "/holberton hard/s/5/5000/" /etc/security/limits.conf',
+exec { 'increase-hard-file-limit-for-holberton-user':
+  command => 'sed -i "/holberton hard/s/5/50000/" /etc/security/limits.conf',
   path    => '/usr/local/bin/:/bin/'
 }
 
-exec { 'increase_soft_limit_for_holberton':
-  command => 'sed -i "/holberton hard/s/4/5000/" /etc/security/limits.conf',
+# Increase soft file limit for user holberton
+exec { 'increase-soft-file-limit-for-holberton-user':
+  command => 'sed -i "/holberton soft/s/4/40000/" /etc/security/limits.conf',
   path    => '/usr/local/bin/:/bin/'
 }
