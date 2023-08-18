@@ -10,5 +10,5 @@ worker_pid=$(pgrep -P gunicorn_pid)
 # send a SIGHUP signal to restart the gunicorn for each worker_pid
 for worker in "${worker_pid[@]}"
 do
-    kill -SIGHUP "$worker"
+    kill -SIGHUP "$gunicorn_pid"
 done
