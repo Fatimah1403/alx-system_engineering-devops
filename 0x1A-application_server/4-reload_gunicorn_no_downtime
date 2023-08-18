@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
-# This script reloads Gunicorn in a graceful way.
+# A bash script that reload a gunicorn in a graceful way
 
-# Retrieve master gunicorn process PID
-master=$(pgrep gunicorn | head -n 1)
+# Getting the PID of the gunicorn process
+gunicorn_p=$(pgrep gunicorn | head -n 1)
 
-# Use master process PID to retrieve a list of worker PIDs
-workers=($(pgrep -P "$master"))
+# use the gunicorn_pid to generate the worker pid
+workers=($(pgrep -P "$gunicorn_p"))
 
-# For each worker PID, send SIGHUP signal to restart process
+# send a SIGHUP signal to restart the gunicorn for each worker_pid
 for worker in "${workers[@]}"
 do
     kill -SIGHUP "$worker"
 done
+
+echo "Gunicorn gracefully reloaded"
