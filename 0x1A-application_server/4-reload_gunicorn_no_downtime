@@ -5,10 +5,12 @@
 gunicorn_pid=$(pgrep gunicorn | head -n 1)
 
 #use the gunicorn_pid to generate the worker pid
-worker_pid=$(pgrep -P gunicorn_pid)
+worker_pid=$((pgrep -P "$gunicorn_pid"))
 
 # send a SIGHUP signal to restart the gunicorn for each worker_pid
 for worker in "${worker_pid[@]}"
 do
-    kill -SIGHUP "$gunicorn_pid"
+    kill -HUP "$worker"
 done
+
+echo "Gunicorn gracefully reloaded"
